@@ -34,19 +34,19 @@ public class MyController {
     @Autowired
     private MyRepository myRepository;
 
-//    @PostConstruct
-//    public void init() {
-//        User user=new User();
-//        Collection<UserRoles> li=new ArrayList<>();
-//        UserRoles role1=new UserRoles();
-//        role1.setRole("USER");
-//        li.add(role1);
-//        user.setName("sivasanker");
-//        user.setPassword(bCryptPasswordEncoder.encode("siva123456"));
-//        user.setUsername("dukenukem97");
-//        user.setUserRoles(li);
-//        myRepository.save(user);
-//    }
+    @PostConstruct
+    public void init() {
+        User user=new User();
+        Collection<UserRoles> li=new ArrayList<>();
+        UserRoles role1=new UserRoles();
+        role1.setRole("USER");
+        li.add(role1);
+        user.setName("sivasanker");
+        user.setPassword(bCryptPasswordEncoder.encode("siva123456"));
+        user.setUsername("dukenukem97");
+        user.setUserRoles(li);
+        myRepository.save(user);
+    }
 
     @GetMapping("/api/users")
     public List<UserPreview> allUsers() throws Exception {

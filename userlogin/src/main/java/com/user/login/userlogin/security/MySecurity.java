@@ -62,7 +62,7 @@ public class MySecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
                 .addFilterAfter(new JwtTokenVerifier(secretKey, jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST,"/api/users")
+                .antMatchers("/api/users")
                 .permitAll()
                 .anyRequest()
                 .authenticated();
